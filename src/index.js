@@ -6,6 +6,61 @@ const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
 
+//class constructor
+class Todo {
+    constructor(completed, description, index) {
+       this.completed = completed;
+       this.description = description;
+       this.index = index;
+    }
+}
+
+class UI {
+    static displayTodo = () => {
+        const storedTodo = [
+          {
+            completed: false,
+            description: 'Hard Coded To Do One',
+            index: 1,
+          },
+          {
+            completed: true,
+            description: 'Hard Coded To Do Two',
+            index: 2,
+          },
+        ];
+      
+        const todos = storedTodo;
+      
+        todos.forEach((todo) => UI.addTodoToList(todo));
+      }
+
+      static  addTodoToList(todo) {
+        const todoList = document.querySelector('.todo-list');
+
+        const todoDiv = document.createElement('div');
+        todoDiv.classList.add('todo');
+
+        const completedButton = document.createElement('button');
+        completedButton.innerHTML = `${todo.completed}`;
+        completedButton.classList.add('complete-btn');
+        todoDiv.appendChild(completedButton);
+
+        const newTodo = document.createElement('li');
+        newTodo.innerText = `${todo.description}`;
+        newTodo.classList.add('todo-item');
+        todoDiv.appendChild(newTodo);
+
+        const trashButton = document.createElement('button');
+        trashButton.innerHTML = `${todo.index}`;
+        trashButton.classList.add('trash-btn');
+        todoDiv.appendChild(trashButton);
+        // Append to list
+        todoList.appendChild(todoDiv);
+        
+      }
+      
+}
 // Functions
 
 const addTodo = (event) => {
@@ -40,25 +95,6 @@ const addTodo = (event) => {
   todoList.appendChild(todoDiv);
 };
 
-const displayTodo = () => {
-  const storedTodo = [
-    {
-      check: '<i class="fas fa-check"></i>',
-      description: 'Hard Coded To Do',
-      delete: '<i class="fas fa-trash"></i>',
-    },
-    {
-      check: '<i class="fas fa-check"></i>',
-      description: 'Hard Coded To Do',
-      delete: '<i class="fas fa-trash"></i>',
-    },
-  ];
-
-  const todoList = storedTodo;
-
-  todoList.forEach(() => addTodo());
-};
-
 // Event Listeners
-document.addEventListener('DOMContentLoaded', displayTodo);
+document.addEventListener('DOMContentLoaded', UI.displayTodo);
 todoButton.addEventListener('click', addTodo);
