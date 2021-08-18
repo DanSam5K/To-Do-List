@@ -1,7 +1,7 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -9,75 +9,76 @@ body {
   color: #fff;
   font-family: 'Poppins', sans-serif;
   min-height: 100vh;
-
 }
 
 header {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
-header, form {
-   min-height: 20vh;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+header,
+form {
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
-form input, form button {
-    padding: 0.5rem;
-    font-size: 2rem;
-    border: none;
-    background: #fff;
+form input,
+form button {
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: none;
+  background: #fff;
 }
 
 form button {
-    color: #3d2b26;
-    background: #fff;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  color: #3d2b26;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 form button:hover {
-    background: #3d2b26;
-    color: #fff;
+  background: #3d2b26;
+  color: #fff;
 }
 
 .todo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .todo-list {
-    min-width: 30%;
-    list-style: none;
+  min-width: 30%;
+  list-style: none;
 }
 
-.todo{
-    margin: 0.5rem;
-    background: #fff;
-    color: #000;
-    font-size: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.todo {
+  margin: 0.5rem;
+  background: #fff;
+  color: #000;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .todo li {
-    flex: 1;
+  flex: 1;
 }
 
-.trash-btn, .complete-btn{
-    background: #f00;
-    color: #000;
-    border: none;
-    margin-right: 5px;
-    cursor: pointer;
-    font-size: 1.5rem;
+.trash-btn,
+.complete-btn {
+  background: #f00;
+  color: #000;
+  border: none;
+  margin-right: 5px;
+  cursor: pointer;
+  font-size: 1.5rem;
 }
 
-.complete-btn{
-    background:#97be6f;
-    margin-left: 5px;
+.complete-btn {
+  background: #97be6f;
+  margin-left: 5px;
 }
