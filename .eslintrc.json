@@ -11,6 +11,7 @@
     },
     "extends": ["airbnb-base"],
     "rules": {
+      "import/no-unresolved": "off",
       "no-unused-vars": "off",
       "no-shadow": "off",
       "no-param-reassign": "off",
@@ -19,13 +20,6 @@
         "js": "always", "json": "always"
       }]
     },
-    "settings": {
-        "import/resolver": {
-          "node": {
-            "extensions": [".js", ".jsx", ".ts", ".tsx"]
-          }
-        }
-     },
     "ignorePatterns": [
       "dist/",
       "build/"
