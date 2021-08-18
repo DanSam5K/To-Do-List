@@ -6,60 +6,58 @@ const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
 
-//class constructor
+// class constructor
 class Todo {
-    constructor(completed, description, index) {
-       this.completed = completed;
-       this.description = description;
-       this.index = index;
-    }
+  constructor(completed, description, index) {
+    this.completed = completed;
+    this.description = description;
+    this.index = index;
+  }
 }
 
 class UI {
     static displayTodo = () => {
-        const storedTodo = [
-          {
-            completed: false,
-            description: 'Hard Coded To Do One',
-            index: 1,
-          },
-          {
-            completed: true,
-            description: 'Hard Coded To Do Two',
-            index: 2,
-          },
-        ];
-      
-        const todos = storedTodo;
-      
-        todos.forEach((todo) => UI.addTodoToList(todo));
-      }
+      const storedTodo = [
+        {
+          completed: false,
+          description: 'Hard Coded To Do One',
+          index: 1,
+        },
+        {
+          completed: true,
+          description: 'Hard Coded To Do Two',
+          index: 2,
+        },
+      ];
 
-      static  addTodoToList(todo) {
-        const todoList = document.querySelector('.todo-list');
+      const todos = storedTodo;
 
-        const todoDiv = document.createElement('div');
-        todoDiv.classList.add('todo');
+      todos.forEach((todo) => UI.addTodoToList(todo));
+    }
 
-        const completedButton = document.createElement('button');
-        completedButton.innerHTML = `${todo.completed}`;
-        completedButton.classList.add('complete-btn');
-        todoDiv.appendChild(completedButton);
+    static addTodoToList(todo) {
+      const todoList = document.querySelector('.todo-list');
 
-        const newTodo = document.createElement('li');
-        newTodo.innerText = `${todo.description}`;
-        newTodo.classList.add('todo-item');
-        todoDiv.appendChild(newTodo);
+      const todoDiv = document.createElement('div');
+      todoDiv.classList.add('todo');
 
-        const trashButton = document.createElement('button');
-        trashButton.innerHTML = `${todo.index}`;
-        trashButton.classList.add('trash-btn');
-        todoDiv.appendChild(trashButton);
-        // Append to list
-        todoList.appendChild(todoDiv);
-        
-      }
-      
+      const completedButton = document.createElement('button');
+      completedButton.innerHTML = `${todo.completed}`;
+      completedButton.classList.add('complete-btn');
+      todoDiv.appendChild(completedButton);
+
+      const newTodo = document.createElement('li');
+      newTodo.innerText = `${todo.description}`;
+      newTodo.classList.add('todo-item');
+      todoDiv.appendChild(newTodo);
+
+      const trashButton = document.createElement('button');
+      trashButton.innerHTML = `${todo.index}`;
+      trashButton.classList.add('trash-btn');
+      todoDiv.appendChild(trashButton);
+      // Append to list
+      todoList.appendChild(todoDiv);
+    }
 }
 // Functions
 

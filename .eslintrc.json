@@ -12,6 +12,7 @@
     "extends": ["airbnb-base"],
     "rules": {
       "import/no-unresolved": "off",
+      "max-classes-per-file": ["error", 2],
       "no-unused-vars": "off",
       "no-shadow": "off",
       "no-param-reassign": "off",
