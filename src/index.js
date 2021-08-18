@@ -29,9 +29,9 @@ class UI {
           index: '<i class="fas fa-ellipsis-v"></i>',
         },
         {
-            completed: '<i class="fas fa-check"></i>',
-            description: 'Hard Coded To Do Two',
-            index: '<i class="fas fa-ellipsis-v"></i>',
+          completed: '<i class="fas fa-check"></i>',
+          description: 'Hard Coded To Do Two',
+          index: '<i class="fas fa-ellipsis-v"></i>',
         },
       ];
 
