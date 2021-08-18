@@ -19,14 +19,19 @@ class UI {
     static displayTodo = () => {
       const storedTodo = [
         {
-          completed: false,
+          completed: '<i class="fas fa-check"></i>',
           description: 'Hard Coded To Do One',
-          index: 1,
+          index: '<i class="fas fa-ellipsis-v"></i>',
         },
         {
-          completed: true,
+          completed: '<i class="fas fa-check"></i>',
           description: 'Hard Coded To Do Two',
-          index: 2,
+          index: '<i class="fas fa-ellipsis-v"></i>',
+        },
+        {
+            completed: '<i class="fas fa-check"></i>',
+            description: 'Hard Coded To Do Two',
+            index: '<i class="fas fa-ellipsis-v"></i>',
         },
       ];
 
