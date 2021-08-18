@@ -8,13 +8,14 @@ const todoList = document.querySelector('.todo-list');
 
 
 //Functions
+
 const addTodo = event => {
     //Prevent form from submitting
     event.preventDefault();
     //Todo div
     const todoDiv = document.createElement('div');
     todoDiv.classList.add("todo");
-    
+
     //Checked mark button
     const completedButton = document.createElement('button');
     completedButton.innerHTML = '<i class="fas fa-check"></i>';
@@ -24,7 +25,7 @@ const addTodo = event => {
 
     //Create Li
     const newTodo = document.createElement('li');
-    newTodo.innerText = 'hey';
+    newTodo.innerText = 'Hard coded To do Items';
     newTodo.classList.add('todo-item');
 
     todoDiv.appendChild(newTodo);
@@ -41,5 +42,26 @@ const addTodo = event => {
 }
 
 
+const displayTodo = () => {
+    const storedTodo = [
+        {
+            check: '<i class="fas fa-check"></i>',
+            description: 'Hard Coded To Do',
+            delete:'<i class="fas fa-trash"></i>'
+        },
+        {
+            check: '<i class="fas fa-check"></i>',
+            description: 'Hard Coded To Do',
+            delete:'<i class="fas fa-trash"></i>'
+        }
+    ];
+
+    const todoList = storedTodo;
+
+    todoList.forEach(() => addTodo())
+}
+
+
 //Event Listeners
+document.addEventListener('DOMContentLoaded', displayTodo)
 todoButton.addEventListener('click', addTodo)
