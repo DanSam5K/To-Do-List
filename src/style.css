@@ -62,6 +62,7 @@ form button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all 0.3s ease;
 }
 
 .todo li {
@@ -81,4 +82,22 @@ form button:hover {
 .complete-btn {
   background: #97be6f;
   margin-left: 5px;
+}
+
+.todo-item {
+  padding: 0rem 0.5rem;
+}
+
+.fa-trash, .fa-check {
+  pointer-events: none;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.fall {
+  transform: translateY(8rem) rotateZ(20deg);
+  opacity: 0;
 }
