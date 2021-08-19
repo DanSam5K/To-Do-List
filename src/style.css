@@ -87,7 +87,7 @@ form button:hover {
 .uncomplete-btn {
   background: #fff;
   margin: 2px 2px  2px 5px;
-  color: #fff; 
+  color: #fff;
 }
 
 .todo-item {
@@ -115,19 +115,16 @@ select {
   appearance: none;
   outline: none;
   border: none;
+  color: black;
+  width: 10rem;
+  cursor: pointer;
+  padding: 1.1rem;
 }
 
 .select {
   margin: 1.1rem;
   position: relative;
   overflow: hidden;
-}
-
-select {
-  color: black;
-  width: 10rem;
-  cursor: pointer;
-  padding: 1.1rem;
 }
 
 .select::after {

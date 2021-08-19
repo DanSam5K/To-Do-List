@@ -3,9 +3,9 @@ const todoInput = document.querySelector('.todo-input');
 const todoList = document.querySelector('.todo-list');
 // Functions
 
-const filterTodo = event => {
+const filterTodo = (event) => {
   const todos = todoList.childNodes;
-  todos.forEach(todo => {
+  todos.forEach((todo) => {
     switch (event.target.value) {
       case 'all':
         todo.style.display = 'flex';
@@ -30,4 +30,4 @@ const filterTodo = event => {
   });
 };
 
-export { filterTodo };
+export { filterTodo as default };

@@ -1,4 +1,4 @@
-import Todo from './todoclass.js'
+import Todo from './todoclass.js';
 
 export default class UI {
     static displayTodo = () => {
@@ -52,9 +52,8 @@ export default class UI {
     static deleteCheck = (event) => {
       const item = event.target;
       // Delete Todo
-      
 
-      if (item.tagName === "BUTTON"){
+      if (item.tagName === 'BUTTON') {
         if (item.classList[0] === 'uncomplete-btn') {
           const todo = item.parentElement;
           todo.classList.toggle('completed');
