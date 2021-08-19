@@ -1,7 +1,8 @@
 // Selectors
 const todoInput = document.querySelector('.todo-input');
-// const todoButton = document.querySelector('.todo-button');
+const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
+const filterOption = document.querySelector('.filter-todo');
 
 // Functions
 const addTodo = (event) => {
@@ -64,9 +65,9 @@ const deleteCheck = (event) => {
   }
 };
 
-const filterTodo = (event) => {
-  const todo = todoList.childNodes();
-  todoList.forEach((todo) => {
+const filterTodo = event => {
+  const todos = todoList.childNodes;
+  todos.forEach(todo => {
     switch (event.target.value) {
       case 'all':
         todo.style.display = 'flex';

@@ -8,6 +8,6 @@ const todoButton = document.querySelector('.todo-button');
 const filterOption = document.querySelector('.filter-todo');
 
 // Event Listeners
-// todoButton.addEventListener('click', addTodo);
+todoButton.addEventListener('click', addTodo);
 todoList.addEventListener('click', deleteCheck);
-// filterOption.addEventListener('click', filterTodo);
+filterOption.addEventListener('click', filterTodo);
