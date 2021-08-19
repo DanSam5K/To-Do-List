@@ -40,4 +40,19 @@ const addTodo = (event) => {
     todoInput.value = '';
   };
 
-  export { addTodo };
+  const deleteCheck = (event) => {
+     const item = event.target;
+     //Delete Todo
+     if(item.classList[0] === "trash-btn"){
+        const todo = item.parentElement;
+        todo.classList.add('fall')
+        todo.remove();
+     }
+    // Check mark
+     if(item.classList[0] === "complete-btn"){
+        const todo = item.parentElement;
+        todo.classList.toggle('completed');
+     }
+  }
+
+  export { addTodo, deleteCheck };
