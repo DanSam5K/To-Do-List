@@ -1,11 +1,9 @@
-// Functions
-
 // Selectors
 const todoInput = document.querySelector('.todo-input');
-//const todoButton = document.querySelector('.todo-button');
+// const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
 
-
+// Functions
 const addTodo = event => {
     // Prevent form from submitting
     event.preventDefault();
@@ -16,7 +14,7 @@ const addTodo = event => {
     // Checked mark button
     const completedButton = document.createElement('button');
     completedButton.innerHTML = '<i class="fas fa-check"></i>';
-    completedButton.classList.add('complete-btn');
+    completedButton.classList.add('uncomplete-btn');
   
     todoDiv.appendChild(completedButton);
   
@@ -43,21 +41,27 @@ const addTodo = event => {
   
   const deleteCheck = event => {
      const item = event.target;
-    // Delete Todo
-    //  if(item.classList[0] === "trash-btn"){
-    //     const todo = item.parentElement;
-    //     //Animation
-    //     todo.classList.add('fall');
-    //     todo.addEventListener('transitionend', () => {
-    //         todo.remove();
-    //     })
-        
-    //  }
-    // Check mark
-     if(item.classList[0] === "complete-btn"){
+//    // Delete Todo
+//      if(item.classList[0] === "trash-btn"){
+//         const todo = item.parentElement;
+//         //Animation
+//         todo.classList.add('fall');
+//         todo.addEventListener('transitionend', () => {
+//         todo.remove();
+//       })      
+//     }
+   // Check mark
+     if(item.classList[0] === "uncomplete-btn"){
         const todo = item.parentElement;
         todo.classList.toggle('completed');
-     }
+        item.classList.remove('uncomplete-btn')
+        item.classList.add('complete-btn')
+    } else{
+       const todo = item.parentElement;
+       todo.classList.toggle('completed');
+       item.classList.remove('complete-btn')
+       item.classList.add('uncomplete-btn')
+    }
   }
 
   const filterTodo = event => {
@@ -69,14 +73,14 @@ const addTodo = event => {
               break;
             case "completed":
                 if(todo.classList.contains('completed')){
-                    todo.style.display = "flex"
+                    todo.style.display = "flex";
                 } else {
                     todo.style.display = "none";
                 }
               break;
             case "uncompleted":
                 if(!todo.classList.contains('completed')){
-                    todo.style.display = "flex"
+                    todo.style.display = "flex"    
                 } else {
                     todo.style.display = "none";
                 }
@@ -84,5 +88,10 @@ const addTodo = event => {
           }
       })
   }
+
+
+
+  
+
 
   export { addTodo, deleteCheck, filterTodo };
