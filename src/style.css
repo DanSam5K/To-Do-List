@@ -91,10 +91,11 @@ form button:hover {
 }
 
 .todo-item {
-  padding: 0rem 0.5rem;
+  padding: 0 0.5rem;
 }
 
-.fa-trash, .fa-check {
+.fa-trash,
+.fa-check {
   pointer-events: none;
 }
 
@@ -121,25 +122,23 @@ select {
 }
 
 .select {
- margin: 1.1rem;
- position: relative;
- overflow: hidden;
+  margin: 1.1rem;
+  position: relative;
+  overflow: hidden;
 }
-
 
 .select::after {
   content: "\25BC";
   position: absolute;
-  background:#3d2b26;;
+  background: #3d2b26;
   top: 0;
   right: 0;
   padding: 1.1rem;
   pointer-events: none;
   transition: all 0.3s ease;
-
 }
 
 .select:hover::after {
   background: white;
-  color:#3d2b26;
+  color: #3d2b26;
 }
