@@ -87,7 +87,7 @@ form button:hover {
 .uncomplete-btn {
   background: #fff;
   margin: 2px 2px  2px 5px;
-  color: #fff;
+  color: #fff; 
 }
 
 .todo-item {

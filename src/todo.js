@@ -1,69 +1,7 @@
 // Selectors
 const todoInput = document.querySelector('.todo-input');
-const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
-const filterOption = document.querySelector('.filter-todo');
-
 // Functions
-const addTodo = (event) => {
-  // Prevent form from submitting
-  event.preventDefault();
-  // Todo div
-  const todoDiv = document.createElement('div');
-  todoDiv.classList.add('todo');
-
-  // Checked mark button
-  const completedButton = document.createElement('button');
-  completedButton.innerHTML = '<i class="fas fa-check"></i>';
-  completedButton.classList.add('uncomplete-btn');
-
-  todoDiv.appendChild(completedButton);
-
-  // Create Li
-  const newTodo = document.createElement('li');
-  newTodo.innerText = todoInput.value;
-  newTodo.classList.add('todo-item');
-
-  todoDiv.appendChild(newTodo);
-
-  // Trash button
-  const trashButton = document.createElement('button');
-  trashButton.innerHTML = '<i class="fas fa-trash"></i>';
-  trashButton.classList.add('trash-btn');
-
-  todoDiv.appendChild(trashButton);
-
-  // Append to list
-  todoList.appendChild(todoDiv);
-
-  // Clear input value
-  todoInput.value = '';
-};
-
-const deleteCheck = (event) => {
-  const item = event.target;
-  // Delete Todo
-  if (item.classList[0] === 'trash-btn') {
-    const todo = item.parentElement;
-    // Animation
-    todo.classList.add('fall');
-    todo.addEventListener('transitionend', () => {
-      todo.remove();
-    });
-  }
-  // Check mark
-  if (item.classList[0] === 'uncomplete-btn') {
-    const todo = item.parentElement;
-    todo.classList.toggle('completed');
-    item.classList.remove('uncomplete-btn');
-    item.classList.add('complete-btn');
-  } else {
-    const todo = item.parentElement;
-    todo.classList.toggle('completed');
-    item.classList.remove('complete-btn');
-    item.classList.add('uncomplete-btn');
-  }
-};
 
 const filterTodo = event => {
   const todos = todoList.childNodes;
@@ -92,4 +30,4 @@ const filterTodo = event => {
   });
 };
 
-export { addTodo, deleteCheck, filterTodo };
+export { filterTodo };
