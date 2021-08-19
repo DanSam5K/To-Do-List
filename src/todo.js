@@ -1,7 +1,7 @@
 // Functions
 
 // Selectors
-//const todoInput = document.querySelector('.todo-input');
+const todoInput = document.querySelector('.todo-input');
 //const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
 
@@ -21,7 +21,7 @@ const addTodo = (event) => {
   
     // Create Li
     const newTodo = document.createElement('li');
-    newTodo.innerText = 'Hard coded To do Items';
+    newTodo.innerText = todoInput.value;
     newTodo.classList.add('todo-item');
   
     todoDiv.appendChild(newTodo);
@@ -35,6 +35,9 @@ const addTodo = (event) => {
   
     // Append to list
     todoList.appendChild(todoDiv);
+
+    //Clear input value
+    todoInput.value = '';
   };
 
   export { addTodo };
