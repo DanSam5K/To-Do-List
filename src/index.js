@@ -3,6 +3,7 @@ import './style.css';
 import filterTodo from './todo.js';
 import Todo from './todoclass.js';
 import UI from './uiclass.js';
+import Store from './store.js'
 
 const todoList = document.querySelector('.todo-list');
 const filterOption = document.querySelector('.filter-todo');
@@ -28,6 +29,8 @@ todoForm.addEventListener('submit', (event) => {
    //Add book to list from the UI
    UI.addTodoToList(todo);
    //Show success message
+   //Add book to store
+   Store.addTodo(todo)
    UI.showAlert('To-Do-List Added', 'success');
    //Clear input fields
    UI.clearFields();

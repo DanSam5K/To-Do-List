@@ -2,7 +2,7 @@ import Store from './store.js'
 
 export default class UI {
     static displayTodo = () => {
-      const todos = Store.getTodo;
+      const todos = Store.getTodos();
 
       todos.forEach((todo) => UI.addTodoToList(todo));
     }
