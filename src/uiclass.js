@@ -53,6 +53,16 @@ export default class UI {
       const item = event.target;
       // Delete Todo
 
+      if(item.tagName === 'BUTTON') {
+          if(item.classList[0] === 'trash-btn'){
+              const todo = item.parentElement;
+              todo.classList.add('fall');
+              todo.addEventListener('transitionend', () => {
+                item.remove()
+              })         
+          }
+      }
+
       if (item.tagName === 'BUTTON') {
         if (item.classList[0] === 'uncomplete-btn') {
           const todo = item.parentElement;
