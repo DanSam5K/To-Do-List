@@ -49,6 +49,17 @@ export default class UI {
       todoList.appendChild(todoDiv);
     }
 
+    static showAlert = (message, className) => {
+      const div = document.createElement('div');
+      div.className = `alert alert-${className}`;
+      div.appendChild(document.createTextNode(message));
+      const body = document.querySelector('BODY');
+      const form = document.querySelector('#todo-form');
+      body.insertBefore(div, form);
+
+      setTimeout(() => document.querySelector('.alert').remove(), 1000)
+    }
+
     static clearFields = () => {
         document.querySelector('#description').value = ''
     }
