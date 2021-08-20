@@ -1,4 +1,5 @@
-import Store from './store';
+import Store from './store.js';
+
 export default class Todo {
   constructor(completed, description, edit) {
     this.completed = completed;

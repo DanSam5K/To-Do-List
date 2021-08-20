@@ -1,4 +1,4 @@
-import Store from './store.js'
+import Store from './store.js';
 
 export default class UI {
     static displayTodo = () => {
@@ -15,7 +15,6 @@ export default class UI {
 
       const completedButton = document.createElement('button');
       completedButton.innerHTML = `${todo.completed}`;
-    //   completedButton.classList.add('uncomplete-btn');
       completedButton.classList.add('toggle-btn');
       todoDiv.appendChild(completedButton);
 
@@ -54,51 +53,38 @@ export default class UI {
       const form = document.querySelector('#todo-form');
       body.insertBefore(div, form);
 
-      setTimeout(() => document.querySelector('.alert').remove(), 1000)
+      setTimeout(() => document.querySelector('.alert').remove(), 1000);
     }
 
     static clearFields = () => {
-        document.querySelector('#description').value = ''
+      document.querySelector('#description').value = '';
     }
 
     static delete = (event) => {
-      
       const item = event.target;
       // Delete Todo
- 
-      if(item.classList[0] === 'trash-btn') {
-    
-              const todo = item.parentElement;
-              todo.classList.add('fall');
-              todo.addEventListener('transitionend', () => {
-                item.remove();
-              })         
-          }
-    }
 
+      if (item.classList[0] === 'trash-btn') {
+        const todo = item.parentElement;
+        todo.classList.add('fall');
+        todo.addEventListener('transitionend', () => {
+          item.remove();
+        });
+      }
+    }
 
     static check = (event) => {
       const item = event.target;
       if (item.classList[0] === 'toggle-btn') {
-        // if (item.classList[1] === 'uncomplete-btn') {
+        const todo = item.parentElement;
+        todo.classList.toggle('completed');
+        item.classList.toggle('complete-btn');
+
+        if (item.classList === 'complete-btn') {
           const todo = item.parentElement;
           todo.classList.toggle('completed');
-        //   item.classList.remove('uncomplete-btn');
           item.classList.toggle('complete-btn');
-
-          if(item.classList === 'complete-btn'){
-            const todo = item.parentElement;
-            todo.classList.toggle('completed');
-          //   item.classList.remove('uncomplete-btn');
-            item.classList.toggle('complete-btn');
-          }
-        // } else {
-        //   const todo = item.parentElement;
-        //   todo.classList.toggle('completed');
-        //   item.classList.remove('complete-btn');
-        //   item.classList.add('uncomplete-btn');
-        // }
+        }
       }
     }
-
 }
