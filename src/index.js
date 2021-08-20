@@ -5,9 +5,31 @@ import Todo from './todoclass.js';
 import UI from './uiclass.js';
 import Store from './store.js'
 
+window.onload = function windowReady() { 
+
 const todoList = document.querySelector('.todo-list');
 const filterOption = document.querySelector('.filter-todo');
 const todoForm = document.querySelector("#todo-form");
+
+let clickTimes = true;
+const edit = (event) => {
+  const item = event.target;
+  
+  if(item.classList[0] === 'edit-btn'){
+     // const editTodo = document.querySelector('edit');
+     const taskId = parseInt(item.id.replace('button-edit-', ''), 10);
+     document.querySelector(`#todo-edit-${taskId}`).style.display = 'block';
+     document.querySelector(`#new-edit-${taskId}`).style.display = 'none';
+     const element = Store.getTodos()[taskId];
+     
+     if(clickTimes === false){
+       element['description'] = document.querySelector(`#todo-edit-${taskId}`).value;
+       document.querySelector(`#todo-edit-${taskId}`).style.display = 'none';
+       document.querySelector(`#new-edit-${taskId}`).style.display = 'block';
+     }
+    clickTimes = false;
+  }
+}
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', UI.displayTodo);
@@ -19,13 +41,13 @@ todoForm.addEventListener('submit', (event) => {
   const completed = '<i class="fas fa-check"></i>';
   const description = document.querySelector("#description").value;
   const edit = '<i class="fas fa-edit"></i>';
-  const index = '<i class="fas fa-trash"></i>';
+  
   //validate input
   if(description === ''){
     UI.showAlert('Please fill in To-Do-List', 'danger');
   } else{
    //instantiate a todo
-   const todo = new Todo(completed, description, edit, index)
+   const todo = new Todo(completed, description, edit)
    //Add book to list from the UI
    UI.addTodoToList(todo);
    //Show success message
@@ -37,6 +59,10 @@ todoForm.addEventListener('submit', (event) => {
   }
 });
 
-todoList.addEventListener('click', UI.delete);
-todoList.addEventListener('click', UI.check)
+todoList.addEventListener('click', UI.delete); 
+todoList.addEventListener('click', UI.check);
+todoList.addEventListener('click', edit);
+
 filterOption.addEventListener('click', filterTodo);
+
+};
