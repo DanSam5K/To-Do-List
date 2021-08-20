@@ -5,7 +5,6 @@ import Todo from './todoclass.js';
 import UI from './uiclass.js';
 
 const todoList = document.querySelector('.todo-list');
-const todoButton = document.querySelector('.todo-button');
 const filterOption = document.querySelector('.filter-todo');
 const todoForm = document.querySelector("#todo-form");
 
@@ -35,5 +34,6 @@ todoForm.addEventListener('submit', (event) => {
   }
 });
 
-todoList.addEventListener('click', UI.deleteCheck);
+todoList.addEventListener('click', UI.delete);
+todoList.addEventListener('click', UI.check)
 filterOption.addEventListener('click', filterTodo);

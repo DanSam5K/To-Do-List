@@ -1,21 +1,8 @@
+import Store from './store.js'
+
 export default class UI {
     static displayTodo = () => {
-      const storedTodo = [
-        {
-          completed: '<i class="fas fa-check"></i>',
-          description: 'Hard Coded To Do One',
-          edit: '<i class="fas fa-edit"></i>',
-          index: '<i class="fas fa-trash"></i>',
-        },
-        {
-          completed: '<i class="fas fa-check"></i>',
-          description: 'Hard Coded To Do Two',
-          edit: '<i class="fas fa-edit"></i>',
-          index: '<i class="fas fa-trash"></i>',
-        },
-      ];
-
-      const todos = storedTodo;
+      const todos = Store.getTodo;
 
       todos.forEach((todo) => UI.addTodoToList(todo));
     }
@@ -64,7 +51,7 @@ export default class UI {
         document.querySelector('#description').value = ''
     }
 
-    static deleteCheck = (event) => {
+    static delete = (event) => {
       const item = event.target;
       // Delete Todo
 
@@ -76,8 +63,11 @@ export default class UI {
                 item.remove();
               })         
           }
-     }
+        }
+    }
 
+    static check = (event) => {
+      const item = event.target;
       if (item.tagName === 'BUTTON') {
         if (item.classList[0] === 'uncomplete-btn') {
           const todo = item.parentElement;
