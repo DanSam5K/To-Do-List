@@ -1,8 +1,8 @@
-import UI from './uiclass.js'
 export default class Todo {
-  constructor(completed, description, index) {
+  constructor(completed, description, edit, index) {
     this.completed = completed;
     this.description = description;
+    this.edit = edit;
     this.index = index;
   }
 }

@@ -1,22 +1,17 @@
-import Todo from './todoclass.js';
-
 export default class UI {
     static displayTodo = () => {
       const storedTodo = [
         {
           completed: '<i class="fas fa-check"></i>',
           description: 'Hard Coded To Do One',
-          index: '<i class="fas fa-ellipsis-v"></i>',
+          edit: '<i class="fas fa-edit"></i>',
+          index: '<i class="fas fa-trash"></i>',
         },
         {
           completed: '<i class="fas fa-check"></i>',
           description: 'Hard Coded To Do Two',
-          index: '<i class="fas fa-ellipsis-v"></i>',
-        },
-        {
-          completed: '<i class="fas fa-check"></i>',
-          description: 'Hard Coded To Do Two',
-          index: '<i class="fas fa-ellipsis-v"></i>',
+          edit: '<i class="fas fa-edit"></i>',
+          index: '<i class="fas fa-trash"></i>',
         },
       ];
 
@@ -40,6 +35,11 @@ export default class UI {
       newTodo.innerText = `${todo.description}`;
       newTodo.classList.add('todo-item');
       todoDiv.appendChild(newTodo);
+
+      const editButton = document.createElement('button');
+      editButton.innerHTML = `${todo.edit}`;
+      editButton.classList.add('edit-btn');
+      todoDiv.appendChild(editButton);
 
       const trashButton = document.createElement('button');
       trashButton.innerHTML = `${todo.index}`;
