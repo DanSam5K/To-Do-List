@@ -49,19 +49,23 @@ export default class UI {
       todoList.appendChild(todoDiv);
     }
 
+    static clearFields = () => {
+        document.querySelector('#description').value = ''
+    }
+
     static deleteCheck = (event) => {
       const item = event.target;
       // Delete Todo
 
-    //   if(item.tagName === 'BUTTON') {
+      if(item.tagName === 'BUTTON') {
           if(item.classList[0] === 'trash-btn'){
               const todo = item.parentElement;
               todo.classList.add('fall');
               todo.addEventListener('transitionend', () => {
-                item.remove()
+                item.remove();
               })         
           }
-    //   }
+     }
 
       if (item.tagName === 'BUTTON') {
         if (item.classList[0] === 'uncomplete-btn') {

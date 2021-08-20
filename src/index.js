@@ -27,6 +27,8 @@ todoForm.addEventListener('submit', (event) => {
 
    //Add book to list from the UI
    UI.addTodoToList(todo);
+   //Clear input fields
+   UI.clearFields();
 })
 
 todoList.addEventListener('click', UI.deleteCheck);
