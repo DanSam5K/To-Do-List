@@ -53,7 +53,7 @@ export default class UI {
       const item = event.target;
       // Delete Todo
 
-      if(item.tagName === 'BUTTON') {
+    //   if(item.tagName === 'BUTTON') {
           if(item.classList[0] === 'trash-btn'){
               const todo = item.parentElement;
               todo.classList.add('fall');
@@ -61,7 +61,7 @@ export default class UI {
                 item.remove()
               })         
           }
-      }
+    //   }
 
       if (item.tagName === 'BUTTON') {
         if (item.classList[0] === 'uncomplete-btn') {
