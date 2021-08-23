@@ -20,7 +20,7 @@ This simple application allow user perform full basic CRUD operation using the l
 - Git & Github
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://dansam5k.github.io/To-Do-List/)
 ## Getting Started
 
 👤 **Daniel Samuel**
