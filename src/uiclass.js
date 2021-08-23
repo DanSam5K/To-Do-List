@@ -4,7 +4,7 @@ export default class UI {
     static displayTodo = () => {
       const todos = Store.getTodos();
 
-      todos.forEach((todo) => UI.addTodoToList(todo));
+      todos.forEach((todo) => UI.addTodoToList((todo)));
     }
 
     static addTodoToList(todo) {
@@ -14,7 +14,7 @@ export default class UI {
       todoDiv.classList.add('todo');
 
       const completedButton = document.createElement('button');
-      completedButton.innerHTML = `${todo.completed}`;
+      completedButton.innerHTML = '<i class="fas fa-check"></i>';
       completedButton.classList.add('toggle-btn');
       todoDiv.appendChild(completedButton);
 
@@ -32,7 +32,7 @@ export default class UI {
       todoDiv.appendChild(editTodo);
 
       const editButton = document.createElement('button');
-      editButton.innerHTML = `${todo.edit}`;
+      editButton.innerHTML = '<i class="fas fa-edit"></i>';
       editButton.id = `button-edit-${todo.index}`;
       editButton.classList.add('edit-btn');
       todoDiv.appendChild(editButton);
@@ -63,12 +63,12 @@ export default class UI {
     static delete = (event) => {
       const item = event.target;
       // Delete Todo
-
-      if (item.classList[0] === 'trash-btn') {
+      if (item.classList.contains('trash-btn')) {
         const todo = item.parentElement;
         todo.classList.add('fall');
+        Store.removeTodo(todo);
         todo.addEventListener('transitionend', () => {
-          item.remove();
+          todo.remove();
         });
       }
     }
@@ -79,12 +79,6 @@ export default class UI {
         const todo = item.parentElement;
         todo.classList.toggle('completed');
         item.classList.toggle('complete-btn');
-
-        if (item.classList === 'complete-btn') {
-          const todo = item.parentElement;
-          todo.classList.toggle('completed');
-          item.classList.toggle('complete-btn');
-        }
       }
     }
 }
