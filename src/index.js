@@ -37,16 +37,17 @@ window.onload = function windowReady() {
   todoForm.addEventListener('submit', (event) => {
     // prevent default submit
     event.preventDefault();
-    const completed = '<i class="fas fa-check"></i>';
+    // const completed = '<i class="fas fa-check"></i>';
     const description = document.querySelector('#description').value;
-    const edit = '<i class="fas fa-edit"></i>';
+    const index = Store.getTodos().length;
+  
 
     // validate input
     if (description === '') {
       UI.showAlert('Please fill in To-Do-List', 'danger');
     } else {
       // instantiate a todo
-      const todo = new Todo(completed, description, edit);
+      const todo = new Todo(description, index);
       // Add book to list from the UI
       UI.addTodoToList(todo);
       // Show success message
@@ -63,4 +64,5 @@ window.onload = function windowReady() {
   todoList.addEventListener('click', edit);
 
   filterOption.addEventListener('click', filterTodo);
+  UI.displayTodo();
 };
