@@ -1,22 +1,66 @@
 import _ from 'lodash';
 import './style.css';
 import filterTodo from './todo.js';
+import Todo from './todoclass.js';
 import UI from './uiclass.js';
+import Store from './store.js';
 
-const todoList = document.querySelector('.todo-list');
-const todoButton = document.querySelector('.todo-button');
-const filterOption = document.querySelector('.filter-todo');
+window.onload = function windowReady() {
+  const todoList = document.querySelector('.todo-list');
+  const filterOption = document.querySelector('.filter-todo');
+  const todoForm = document.querySelector('#todo-form');
 
-// class constructor
-class Todo {
-  constructor(completed, description, index) {
-    this.completed = completed;
-    this.description = description;
-    this.index = index;
-  }
-}
+  let clickTimes = true;
+  const edit = (event) => {
+    const item = event.target;
 
-// Event Listeners
-document.addEventListener('DOMContentLoaded', UI.displayTodo);
-todoList.addEventListener('click', UI.deleteCheck);
-filterOption.addEventListener('click', filterTodo);
+    if (item.classList[0] === 'edit-btn') {
+      // const editTodo = document.querySelector('edit');
+      const taskId = parseInt(item.id.replace('button-edit-', ''), 10);
+      document.querySelector(`#todo-edit-${taskId}`).style.display = 'block';
+      document.querySelector(`#new-edit-${taskId}`).style.display = 'none';
+      const element = Store.getTodos()[taskId];
+
+      if (clickTimes === false) {
+        element.description = document.querySelector(`#todo-edit-${taskId}`).value;
+        document.querySelector(`#todo-edit-${taskId}`).style.display = 'none';
+        document.querySelector(`#new-edit-${taskId}`).style.display = 'block';
+      }
+      clickTimes = false;
+    }
+  };
+
+  // Event Listeners
+  document.addEventListener('DOMContentLoaded', UI.displayTodo);
+
+  // Add Book Event
+  todoForm.addEventListener('submit', (event) => {
+    // prevent default submit
+    event.preventDefault();
+    const completed = '<i class="fas fa-check"></i>';
+    const description = document.querySelector('#description').value;
+    const edit = '<i class="fas fa-edit"></i>';
+
+    // validate input
+    if (description === '') {
+      UI.showAlert('Please fill in To-Do-List', 'danger');
+    } else {
+      // instantiate a todo
+      const todo = new Todo(completed, description, edit);
+      // Add book to list from the UI
+      UI.addTodoToList(todo);
+      // Show success message
+      // Add book to store
+      Store.addTodo(todo);
+      UI.showAlert('To-Do-List Added', 'success');
+      // Clear input fields
+      UI.clearFields();
+    }
+  });
+
+  todoList.addEventListener('click', UI.delete);
+  todoList.addEventListener('click', UI.check);
+  todoList.addEventListener('click', edit);
+
+  filterOption.addEventListener('click', filterTodo);
+};

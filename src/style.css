@@ -71,32 +71,43 @@ form button:hover {
 
 .trash-btn,
 .complete-btn {
-  background: #f00;
-  color: #000;
+  background: #b32323;
+  color: #fff;
   border: none;
-  margin-right: 5px;
+  margin: 5px 2px  0 5px;
+  padding: 5px;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1rem;
+}
+
+.edit-btn {
+  background: #227;
+  color: #fff8db;
+  border: none;
+  margin: 5px 0  2px 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 .complete-btn {
   background: #97be6f;
-  margin: 2px 2px  2px 5px;
-}
-
-.uncomplete-btn {
-  background: #fff;
-  margin: 2px 2px  2px 5px;
-  color: #fff;
+  margin: 5px 5px  2px 5px;
+  padding: 5px;
+  color: #000;
 }
 
 .todo-item {
   padding: 0 0.5rem;
 }
 
-.fa-trash,
+.fa-trash {
+  pointer-events: none;
+}
+
 .fa-check {
   pointer-events: none;
+  color: #fff;
 }
 
 .completed {
@@ -141,4 +152,42 @@ select {
 .select:hover::after {
   background: white;
   color: #3d2b26;
+}
+
+.alert-success {
+  font-family: Verdana, sans-serif;
+  font-size: 15px;
+  line-height: 1rem;
+  width: 30vw;
+  box-sizing: inherit;
+  transition: opacity 0.15s linear;
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-left: 27%;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding-right: 5px;
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  opacity: 1;
+}
+
+.alert-danger {
+  font-family: Verdana, sans-serif;
+  width: 30vw;
+  font-size: 15px;
+  line-height: 1rem;
+  box-sizing: inherit;
+  transition: opacity 0.15s linear;
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-left: 27%;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding-right: 5px;
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  opacity: 1;
 }
