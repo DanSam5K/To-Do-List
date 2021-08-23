@@ -3,7 +3,7 @@ import Store from './store.js';
 export default class UI {
     static displayTodo = () => {
       const todos = Store.getTodos();
-      
+
       todos.forEach((todo) => UI.addTodoToList((todo)));
     }
 
@@ -63,12 +63,12 @@ export default class UI {
     static delete = (event) => {
       const item = event.target;
       // Delete Todo
-      if(item.classList.contains("trash-btn")){
+      if (item.classList.contains('trash-btn')) {
         const todo = item.parentElement;
-         todo.classList.add('fall');
-         Store.removeTodo(todo);
-         todo.addEventListener('transitionend', () => {
-              todo.remove();
+        todo.classList.add('fall');
+        Store.removeTodo(todo);
+        todo.addEventListener('transitionend', () => {
+          todo.remove();
         });
       }
     }

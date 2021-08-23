@@ -40,7 +40,6 @@ window.onload = function windowReady() {
     // const completed = '<i class="fas fa-check"></i>';
     const description = document.querySelector('#description').value;
     const index = Store.getTodos().length;
-  
 
     // validate input
     if (description === '') {
