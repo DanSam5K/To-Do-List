@@ -16,14 +16,16 @@ export default class Store {
       localStorage.setItem('todos', JSON.stringify(todos));
     }
 
-    static removeTodo = (index) => {
-      const todos = Store.getTodos();
-
-      todos.forEach((todo, num) => {
-        if (todo.index === index) {
-          todos.splice(num, 1);
-        }
-      });
-      localStorage.setItem('todos', JSON.stringify(todos));
+    static removeTodo = (todo) => {
+      let todos = Store.getTodos();
+      if (localStorage.getItem("todos") === null){
+        todos = [];
+      } else {
+        todos = JSON.parse(localStorage.getItem("todos"));
+      }
+      const todoIndex = todo.children[0].innerText
+      todos.splice(todos.indexOf(todoIndex), 1);
+      localStorage.setItem("todos", JSON.stringify(todos));
     }
+
 }
