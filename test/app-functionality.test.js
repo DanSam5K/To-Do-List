@@ -23,5 +23,15 @@ describe('Test editTask', () => {
     });
   });
 
+  describe('Test the check status function', () => {
+    test('update the completeStatus', () => {
+      domElement;
+      const checkBox = document.querySelector('.check-box');
+      let checkedBox = checkBox.checked;
+      checkedBox = true;
+      expect(checkedBox).toBe(true);
+    });
+  });
+  
 
   
