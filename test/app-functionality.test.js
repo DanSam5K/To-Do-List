@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-expressions */
+import { addTask, deleteTask } from './add-remove.js';
 import editTask from './edit.js';
 import reorderTasks from './reorder.js';
 import deleteCompletedTasks from './clear.js';
@@ -12,6 +12,26 @@ document.body.innerHTML = `
           </ul>
           <button type="button" class="button" data-action="deleteCompleted">Clear all completed</button> `;
 const domElement = document.body.innerHTML;
+
+describe('Add object to taskArray', () => {
+  test('Add one object to the tasksArray', () => {
+    domElement;
+    const addObject = document.getElementsByClassName('input')[0];
+    addObject.addEventListener('submit', () => addTask);
+    expect(document.getElementsByClassName('task-description')[0].textContent).toBe('value');
+  });
+});
+
+describe('deleteTask()', () => {
+  test('remove an object from tasksArray', () => {
+    domElement;
+    const deleteIcons = document.getElementsByClassName('deleteIcons');
+    for (let i = 0; i < deleteIcons.length; i += 1) {
+      deleteIcons[i].addEventListener('click', () => deleteTask);
+    }
+    expect(deleteIcons.length).toBe(0);
+  });
+});
 
 describe('Test editTask', () => {
   test('edit task description', () => {
