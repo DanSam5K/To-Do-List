@@ -7,7 +7,7 @@ document.body.innerHTML = `
     </ul>
     <button type="button" class="button" data-action="deleteCompleted">Clear all completed</button> `;
 
-  let domElement = document.body.innerHTML;
+const domElement = document.body.innerHTML;
 
 describe('Add object to taskArray', () => {
   test('Add one object to the tasksArray', () => {
