@@ -12,3 +12,16 @@ document.body.innerHTML = `
           <button type="button" class="button" data-action="deleteCompleted">Clear all completed</button> `; 
 let domElement = document.body.innerHTML;
 
+describe('Test editTask', () => {
+    test('edit task description', () => {
+      domElement;
+      const items = document.getElementsByTagName('li');
+      for (let i = 0; i < items.length; i += 1) {
+        const editTaskIcon = document.querySelector('.editIcon');
+        editTaskIcon.addEventListener('click', editTask);
+      }
+    });
+  });
+
+
+  
