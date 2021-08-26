@@ -1,6 +1,6 @@
-import editTask from './edit';
-import reorderTasks from './reorder';
-import deleteCompletedTasks from './clear';
+// import editTask from './edit';
+// import reorderTasks from './reorder';
+// import deleteCompletedTasks from './clear';
 
 document.body.innerHTML = `    
           <input type="text" id="input" class="input" value="input" placeholder="Add to your list...">
@@ -34,4 +34,14 @@ describe('Test editTask', () => {
   });
   
 
+  describe('Test drag and drop function', () => {
+    test('change the order of elements in tasksArray', () => {
+      domElement;
+      const tasksArray = ['task one', 'task two', 'task three'];
+      reorderTasks(tasksArray, 2, 0);
   
+      expect(document.getElementsByClassName('task-description')[0].textContent).toBe('task one');
+    });
+  });
+
+
