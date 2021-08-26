@@ -1,6 +1,6 @@
-// import editTask from './edit';
-// import reorderTasks from './reorder';
-// import deleteCompletedTasks from './clear';
+import editTask from './edit';
+import reorderTasks from './reorder';
+import deleteCompletedTasks from './clear';
 
 document.body.innerHTML = `    
           <input type="text" id="input" class="input" value="input" placeholder="Add to your list...">
