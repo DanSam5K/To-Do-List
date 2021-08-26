@@ -29,5 +29,6 @@ describe('deleteTask()', () => {
     for (let i = 0; i < deleteIcons.length; i += 1) {
       deleteIcons[i].addEventListener('click', () => deleteTask);
     }
+    expect(deleteIcons.length).toBe(0);
   });
 });
