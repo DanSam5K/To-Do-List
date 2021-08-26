@@ -44,4 +44,13 @@ describe('Test editTask', () => {
     });
   });
 
-
+  describe('Test delete completedTask', () => {
+    test('Delete completedTask', () => {
+      domElement;
+      const button = document.querySelector('.button');
+      for (let i = 0; i < button.length; i += 1) {
+        button.addEventListener('click', deleteCompletedTasks);
+      }
+    });
+  });
+  
